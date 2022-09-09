@@ -1,10 +1,8 @@
 <h1>Welcome! Please Sign-up Here and Register With the Website</h1>
 <%= form_for @user do |f| %>
-
     <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -13,25 +11,21 @@
     </div>
   <% end %>
 
-
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br>
+
     <%= f.label :last_name %>
     <%= f.text_field :last_name %><br>
-    <%= f.label :username %>
-    <div class="field<%= ' field_with_errors' if @user.errors[:username].any? %>">
-    <%= f.text_field :username %><br>
-    </div><br>
-    <%= f.label :password %>
-    <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
-    <%= f.password_field :password %>
-    
-    </div><br>
-    <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
-    <%= f.label :password_confirmation %>
-    </div><br>
 
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %><br>
+
     <%= f.submit %>
 <% end %>
     
