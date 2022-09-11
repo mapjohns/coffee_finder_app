@@ -1,3 +1,4 @@
+<%= flash[:notice] if flash[:notice] %>
 <h1>Welcome Back! Please Sign-in below to view your coffee profile!</h1>
 <%= form_tag '/signin' do %>
     <label>Username: </label><br>
