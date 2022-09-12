@@ -13,3 +13,8 @@
 
     <%= submit_tag "Log in" %>
 <% end %>
+<br>
+<h3>OR</h3>
+<%= form_tag('/auth/github', method: 'post', data: {turbo: false}) do %>
+    <button type='submit'>Login with GitHub</button>
+<% end %>
