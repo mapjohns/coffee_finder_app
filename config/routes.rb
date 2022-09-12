@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
-
+  get 'auth/:provider/callback', to: 'sessions#create'
 end
