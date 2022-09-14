@@ -1,0 +1,7 @@
+<h1>Below are all the coffees available so far!<h1>
+<p>If you find your coffee is missing, please feel free to add a submission</p>
+<ol>
+<% @coffees.each do |coffee| %>
+    <li><%= coffee.drink_name %></li>
+<% end %>
+</ol>
