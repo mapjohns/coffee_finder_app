@@ -1,0 +1,11 @@
+<h1>Add Coffee to the Website</h1>
+<p>If you find that a coffee drink is missing, this is the place to add it and share your favorite drink!</p><br>
+<%= form_for @coffee do |f| %>
+    <%= f.label :drink_name %>
+    <%= f.text_field :drink_name %><br><br>
+    <%= f.label :description %>
+    <%= f.text_area :description %><br><br>
+    <%= f.label :store_name %>
+    <%= f.text_field :store_id %><br><br>
+    <%= f.submit %>
+<% end %>
