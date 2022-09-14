@@ -11,7 +11,7 @@ class CoffeesController < ApplicationController
         @coffee = Coffee.new(coffee_params)
         if @coffee.valid?
             @coffee.save
-            redirect_to 
+            redirect_to coffees_path
         else
           render 'new'  
         end
