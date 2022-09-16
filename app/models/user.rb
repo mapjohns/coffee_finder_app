@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
     validates :username, uniqueness: true
     validates :password_confirmation, :username, :first_name, :last_name, presence: true
     
+    has_many :reviews
+    has_many :coffees, through: :reviews
+
     def self.oauth(auth)
         user = User.find_or_create_by(g_id: auth['uid']) do |u|
             u.first_name = auth['info']['name'].split[0]
