@@ -1,2 +1,13 @@
 <h1><%= @coffee.drink_name %></h1>
 <p><%= @coffee.description %></p>
+
+<h3>Tried it? Leave a Review!</h3>
+<%= form_for @review do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :coffee_id, :value => @coffee.id %>
+    <%= f.label :rating %>
+    <%= f.number_field :rating %><br>
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+    <%= f.submit %>
+<% end %>
