@@ -5,7 +5,12 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        
+        @review = Review.new(review_params)
+        if @review.save
+            redirect_to coffee_path(@review.coffee)
+        else
+            redirect_to coffee_path(@review.coffee)
+        end
     end
 
     def edit
