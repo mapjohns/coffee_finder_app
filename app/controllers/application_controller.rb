@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+    helper_method :current_user, :logged_in?
     def logged_in?
         if current_user == nil
             redirect_to '/signin'
