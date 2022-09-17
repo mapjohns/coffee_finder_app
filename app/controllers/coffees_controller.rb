@@ -19,6 +19,7 @@ class CoffeesController < ApplicationController
 
     def show
         @coffee = Coffee.find(params[:id])
+        @review = Review.new()
     end
 
     def edit
