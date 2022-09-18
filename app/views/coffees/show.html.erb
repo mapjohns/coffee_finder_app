@@ -1,6 +1,18 @@
 <h1><%= @coffee.drink_name %></h1>
 <p><%= @coffee.description %></p>
 
+<div>
+    <h3>Reviews: </h3>
+    <% @coffee.reviews.each do |review| %>
+        <p>
+        <%= review.user.username %> on <%= review.created_at.strftime("%b %d, %Y %l:%M%p")%><br>
+        Rating: <%= review.rating %>/5<br> 
+        Review: <%= review.content %>
+        </p>
+        <br>
+    <% end %>
+</div>
+
 <h3>Tried it? Leave a Review!</h3>
 <%= form_for @review do |f| %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
