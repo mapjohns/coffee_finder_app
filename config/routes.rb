@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :coffees
   resources :reviews
+  resources :stores
   
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'
