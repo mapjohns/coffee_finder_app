@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-    validates :store, presence: true
+    validates :name, presence: true
 
     has_many :coffees
 
