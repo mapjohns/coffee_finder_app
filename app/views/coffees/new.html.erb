@@ -5,9 +5,16 @@
     <%= f.text_field :drink_name %><br><br>
     <%= f.label :description %>
     <%= f.text_area :description %><br><br>
-    <%= f.label :store_name %>
+
+    <br><br>
+    <label>Store Name: </label>
     <%= f.collection_select :store_id, Store.all, :id, :name %><br><br>
-    <%= f.text_field :store_id %>
+
+    <%= f.fields_for :store, Store.new() do |store_field| %>
+        <%= store_field.label :store_name %>
+        <%= store_field.text_field :name %>
+    <% end %>
+
     <br><br>
     <%= f.submit %>
 <% end %>
