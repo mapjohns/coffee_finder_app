@@ -4,4 +4,7 @@ class Coffee < ActiveRecord::Base
     has_many :reviews
     has_many :users, through: :reviews
     belongs_to :store
+
+    accepts_nested_attributes_for :store
+
 end
