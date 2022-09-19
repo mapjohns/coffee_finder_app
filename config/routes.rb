@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
   get 'auth/:provider/callback', to: 'sessions#create'
+  get '/', to: 'welcome#home'
 end
