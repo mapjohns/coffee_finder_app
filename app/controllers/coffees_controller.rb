@@ -33,6 +33,6 @@ class CoffeesController < ApplicationController
     private
 
     def coffee_params
-        params.require(:coffee).permit(:drink_name, :description, :store_id)
+        params.require(:coffee).permit(:drink_name, :description, :store_id, store_attributes: [:name])
     end
 end
