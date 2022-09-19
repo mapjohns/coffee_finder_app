@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
     
     def home
-        render layout: false
+        render layout: "welcome"
     end
 
 end
