@@ -7,4 +7,12 @@ class Coffee < ActiveRecord::Base
 
     accepts_nested_attributes_for :store
 
+    def store_attributes=(store_attributes)
+        check = store_attributes[:name] == ""
+        if check == false
+              store = Store.find_or_create_by(:name => store_attributes[:name])
+              self.store = store
+        end
+    end
+    
 end
