@@ -1,6 +1,6 @@
 <h1><%= @coffee.drink_name %></h1>
 <p><%= @coffee.description %></p>
-
+<h3>Average Rating: <%= avg_rating %>/5</h3>
 <div>
     <h3>Reviews: </h3>
     <% @coffee.reviews.each do |review| %>
