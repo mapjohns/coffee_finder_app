@@ -9,6 +9,7 @@ class StoresController < ApplicationController
 
     def show
         @store = Store.find(params[:id])
+        @location = Location.new()
     end
 
     def edit
