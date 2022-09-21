@@ -1,5 +1,6 @@
 <h1><%= @store.name %></h1>
 <p>This store has the following locations: </h1>
+<div id="c_location">
 <%= form_for @location do |f| %>
     <%= f.hidden_field :store_id, :value => @store.id %>
     <%= f.label :street %>
@@ -12,3 +13,4 @@
     <%= f.text_field :zip_code %><br>
     <%= f.submit %>
 <% end %>
+</div>

@@ -41,3 +41,7 @@ div#center {
 a:visited, a:link, a:hover, a:active {    
     color: black
 }
+
+div#c_location {
+    width: min-content;
+}
