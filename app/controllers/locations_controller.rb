@@ -15,4 +15,10 @@ class LocationsController < ApplicationController
     def update
     end
 
+    private
+
+    def location_params
+        params.require(:location).permit(:street, :city, :state, :zip_code, :store_id)
+    end
+
 end
