@@ -4,6 +4,13 @@ class LocationsController < ApplicationController
     end
 
     def create
+        @location = Location.new(location_params)
+        if @location.save
+            redirect_to store_path(@location.store)
+        else
+            flash[:notice] = "Location invalid"
+            render store_path(@location.store)
+        end
     end
 
     def show
