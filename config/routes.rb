@@ -5,9 +5,12 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show]
   end
 
+  resources :stores do
+    resources :coffees, only: [:new]
+  end
+
   resources :coffees
   resources :reviews
-  resources :stores
   resources :locations
   
   get '/signup', to: 'users#new'
