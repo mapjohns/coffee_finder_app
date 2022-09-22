@@ -10,6 +10,7 @@ class StoresController < ApplicationController
     def show
         @store = Store.find(params[:id])
         @location = Location.new()
+        @locations = Location.all
     end
 
     def edit
