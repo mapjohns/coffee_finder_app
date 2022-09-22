@@ -1,5 +1,17 @@
 <h1><%= @store.name %></h1>
 <p>This store has the following locations: </h1>
+<ul>
+<% @locations.each do |location| %>
+    <li>
+        Street: <%= location.street %><br>
+        City: <%= location.city %><br>
+        State: <%= location.state %><br>
+        Zip Code: <%= location.zip_code %>
+    </li><br>
+<% end %>
+</ul>
+
+<h3>Missing Location? Please add it below:</h3>
 <div id="c_location">
 <%= form_for @location do |f| %>
     <%= f.hidden_field :store_id, :value => @store.id %>
@@ -10,7 +22,7 @@
     <%= f.label :state %>
     <%= f.text_field :state %><br>
     <%= f.label :zip_code %>
-    <%= f.text_field :zip_code %><br>
+    <%= f.text_field :zip_code %><br><br>
     <%= f.submit %>
 <% end %>
 </div>
