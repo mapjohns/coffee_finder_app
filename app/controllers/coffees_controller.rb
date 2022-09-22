@@ -3,8 +3,14 @@ class CoffeesController < ApplicationController
     def index
         @coffees = Coffee.all
     end
+
     def new
-        @coffee = Coffee.new
+        if params[:store_id] && !Store.exists?(params[:store_id])
+            flash[:notice] = "Store not found."
+            redirect_to stores_path
+        else
+            @coffee = Coffee.new(store_id: params[:store_id])
+        end
     end
 
     def create
