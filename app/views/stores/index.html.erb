@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+<% flash.clear %>
+
 <h1>Coffee Stores:</h1>
 <ol>
 <% @stores.each do |store| %>
