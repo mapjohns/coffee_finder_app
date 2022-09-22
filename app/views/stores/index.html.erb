@@ -1,0 +1,6 @@
+<h1>Coffee Stores:</h1>
+<ol>
+<% @stores.each do |store| %>
+    <li><%= link_to store.name, store_path(store) %></li>
+<% end %>
+</ol>
