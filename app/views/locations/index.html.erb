@@ -10,10 +10,11 @@
 <% end %>
 </ul>
 
+<% if params[:store_id] %>
 <h3>Missing Location? Please add it below:</h3>
 <div id="c_location">
 <%= form_for @location do |f| %>
-    <%= f.hidden_field :store_id, :value => @store.id %>
+    <%= f.hidden_field :store_id, :value => params[:store_id] %>
     <%= f.label :street %>
     <%= f.text_field :street %><br>
     <%= f.label :city %>
@@ -25,3 +26,4 @@
     <%= f.submit %>
 <% end %>
 </div>
+<% end %>
