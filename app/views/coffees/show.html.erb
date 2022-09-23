@@ -13,6 +13,7 @@
     <% end %>
 </div>
 
+<% if current_user %>
 <h3>Tried it? Leave a Review!</h3>
 <%= form_for @review do |f| %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -22,4 +23,5 @@
     <%= f.label :content %>
     <%= f.text_area :content %><br>
     <%= f.submit %>
+<% end %>
 <% end %>
