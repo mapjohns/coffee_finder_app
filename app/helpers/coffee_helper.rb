@@ -1,6 +1,6 @@
 module CoffeeHelper
 
     def avg_rating
-        Coffee.find_by(params[:id]).reviews.average(:rating).to_i
+        Coffee.find(params[:id]).reviews.average(:rating).to_f.round(2)
     end
 end
