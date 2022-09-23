@@ -2,7 +2,9 @@ class LocationsController < ApplicationController
 
     def index
         if params[:store_id]
-            @locations = Store.find(params[:store_id]).locations
+            @store = Store.find(params[:store_id])
+            @locations = @store.locations
+            @location = Location.new
         else
             @locations = Location.all
         end
