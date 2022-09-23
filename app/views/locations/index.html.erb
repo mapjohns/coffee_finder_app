@@ -1,0 +1,11 @@
+<h1>Locations</h1>
+<ul>
+<% @locations.each do |location| %>
+    <li>
+        Street: <%= location.street %><br>
+        City: <%= location.city %><br>
+        State: <%= location.state %><br>
+        Zip Code: <%= location.zip_code %>
+    </li><br>
+<% end %>
+</ul>
