@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :coffees, only: [:new]
+    resources :locations, only: [:index, :new]
   end
 
   resources :coffees
