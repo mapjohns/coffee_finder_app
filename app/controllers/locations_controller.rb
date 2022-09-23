@@ -1,5 +1,13 @@
 class LocationsController < ApplicationController
 
+    def index
+        if params[:store_id]
+            @locations = Store.find(params[:store_id]).locations
+        else
+            @locations = Location.all
+        end
+    end
+
     def new
     end
 
