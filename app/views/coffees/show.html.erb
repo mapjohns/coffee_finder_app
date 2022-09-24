@@ -6,7 +6,7 @@
     <h3>Reviews: </h3>
     <% @coffee.reviews.each do |review| %>
         <p>
-        <%= review.user.username %> on <%= review.created_at.strftime("%b %d, %Y %l:%M%p")%><br>
+        <%= review.user.first_name %> on <%= review.created_at.strftime("%b %d, %Y %l:%M%p")%><br>
         Rating: <%= review.rating %>/5<br> 
         Review: <%= review.content %>
         </p>
@@ -16,6 +16,17 @@
 <% if current_user %>
 <h3>Tried it? Leave a Review!</h3>
 <%= form_for @review do |f| %>
+    <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.hidden_field :coffee_id, :value => @coffee.id %>
     <%= f.label :rating %>
