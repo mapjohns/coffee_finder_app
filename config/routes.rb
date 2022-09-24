@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :locations, only: [:index, :new]
   end
 
-  resources :coffees
+  resources :coffees do
+    resources :reviews, only: [:new]
+  end
   resources :reviews
   resources :locations
   
