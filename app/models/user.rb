@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
     has_secure_password
     validates :username, uniqueness: true
-    validates :password_confirmation, :username, :first_name, :last_name, presence: true
+    validates :password, :password_confirmation, :username, :first_name, :last_name, presence: true
     
     has_many :reviews
     has_many :coffees, through: :reviews
