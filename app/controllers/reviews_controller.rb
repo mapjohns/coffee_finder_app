@@ -1,7 +1,13 @@
 class ReviewsController < ApplicationController
 
     def new
-
+        if params[:coffee_id] && !Coffee.exists?(params[:coffee_id])
+            flash[:notice] = "Coffee not found."
+            redirect_to coffees_path
+        else
+            @review = Review.new(coffee_id: params[:coffee_id])
+            @coffee = Coffee.find(params[:coffee_id])
+        end
     end
 
     def create
@@ -9,7 +15,8 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to coffee_path(@review.coffee)
         else
-            redirect_to coffee_path(@review.coffee)
+            @coffee = Coffee.find(@review.coffee.id)
+            render "reviews/new"
         end
     end
 
