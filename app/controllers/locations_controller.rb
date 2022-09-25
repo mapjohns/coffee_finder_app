@@ -11,15 +11,17 @@ class LocationsController < ApplicationController
     end
 
     def new
+        @store = Store.find(params[:store_id])
+        @location = Location.new
     end
 
     def create
         @location = Location.new(location_params)
+        @locations = Location.all
         if @location.save
             redirect_to store_path(@location.store)
         else
-            flash[:notice] = "Location invalid"
-            render store_path(@location.store)
+            render "locations/new"
         end
     end
 
