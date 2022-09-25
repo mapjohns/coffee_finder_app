@@ -6,4 +6,12 @@ module LocationHelper
             "Locations:"
         end
     end
+
+    def render_name
+        if @store
+            @store.name
+        else
+            @location.store.name
+        end
+    end
 end
