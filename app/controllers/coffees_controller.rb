@@ -4,6 +4,10 @@ class CoffeesController < ApplicationController
         @coffees = Coffee.all
     end
 
+    def most_recent
+        @coffees = Coffee.recently_added
+    end
+
     def new
         if params[:store_id] && !Store.exists?(params[:store_id])
             flash[:notice] = "Store not found."
