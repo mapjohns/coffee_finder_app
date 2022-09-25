@@ -7,7 +7,7 @@
     <% @coffee.reviews.each do |review| %>
         <p>
         <%= review.user.first_name %> on <%= review.created_at.strftime("%b %d, %Y %l:%M%p")%>
-        <%= link_to "Update Review", edit_user_review_path(review.user) if review.user == current_user %> <br>
+        <%= link_to "Update Review", edit_user_review_path(review.user, review) if review.user == current_user %> <br>
         Rating: <%= review.rating %>/5<br> 
         Review: <%= review.content %>
         </p>
