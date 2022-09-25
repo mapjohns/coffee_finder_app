@@ -21,10 +21,22 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        
+        if params[:user_id] && !User.exists?(params[:user_id]) || params[:user_id].to_i != current_user.id
+            redirect_to coffees_path
+        else
+            @review = Review.find(params[:id])
+            @coffee = Coffee.find(@review.coffee.id)
+        end
     end
 
     def update
+        @review = Review.find(params[:id])
+        @review.update(review_params)
+        if @review.save
+          redirect_to coffee_path(@review.coffee)
+        else
+          render :edit
+        end
     end
 
     private
