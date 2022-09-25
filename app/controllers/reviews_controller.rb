@@ -35,6 +35,7 @@ class ReviewsController < ApplicationController
         if @review.save
           redirect_to coffee_path(@review.coffee)
         else
+          @coffee = Coffee.find(@review.coffee.id)
           render :edit
         end
     end
