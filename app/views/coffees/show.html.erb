@@ -14,25 +14,5 @@
 </div>
 
 <% if current_user %>
-<h3>Tried it? Leave a Review!</h3>
-<%= form_for @review do |f| %>
-    <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-      <% @review.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-    <% end %>
-
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :coffee_id, :value => @coffee.id %>
-    <%= f.label :rating %>
-    <%= f.number_field :rating, min: 0,max: 5 %><br>
-    <%= f.label :content %>
-    <%= f.text_area :content %><br>
-    <%= f.submit %>
-<% end %>
+<h3>Tried it? <%= link_to "Leave a Review!", new_coffee_review_path(@coffee) %> </h3>
 <% end %>
