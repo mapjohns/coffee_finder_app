@@ -2,7 +2,17 @@ class CoffeesController < ApplicationController
     skip_before_action :logged_in?, only: [:index, :show, :most_recent]
 
     def index
-        @coffees = Coffee.all
+        if params[:store_id]
+            store = Store.find(params[:store_id])
+            if store.nil?
+                flash[:notice] = "Store not found."
+                redirect_to stores_path
+            else
+                @coffees = store.coffees
+            end
+        else
+            @coffees = Coffee.all
+        end
     end
 
     def most_recent
