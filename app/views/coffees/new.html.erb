@@ -2,21 +2,13 @@
 <p>If you find that a coffee drink is missing, this is the place to add it and share your favorite drink!</p><br>
 <%= form_for @coffee do |f| %>
 
-    <% if @coffee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@coffee.errors.count, "error") %> prohibited this coffee from being saved:</h2>
-      <ul>
-      <% @coffee.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-    <% end %>
+  <%= render partial: "layouts/errors", locals: {model: @coffee} %>
 
     <%= f.label :drink_name %>
     <%= f.text_field :drink_name %><br><br>
     <%= f.label :description %>
     <%= f.text_area :description %><br><br>
+
     <label>Store Name: </label>
     <%= f.collection_select :store_id, Store.all, :id, :name %><br><br>
     <p><strong>Cannot find the store? You can also add it below: </strong></p>
