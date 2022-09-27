@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-
+    skip_before_action :logged_in?, only: [:index, :show]
+    
     def index
         if params[:store_id]
             @store = Store.find(params[:store_id])

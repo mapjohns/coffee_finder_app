@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    skip_before_action :logged_in?, only: [:index, :show]
 
     def new
         if params[:coffee_id] && !Coffee.exists?(params[:coffee_id])

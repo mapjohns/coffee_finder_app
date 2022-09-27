@@ -1,5 +1,6 @@
 class CoffeesController < ApplicationController
-    
+    skip_before_action :logged_in?, only: [:index, :show, :most_recent]
+
     def index
         @coffees = Coffee.all
     end
