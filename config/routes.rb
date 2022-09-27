@@ -9,14 +9,14 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/', to: 'welcome#home'
-  
+
   resources :users do
     resources :coffees, only: [:index, :show]
     resources :reviews, only: [:index, :show, :edit, :update]
   end
 
   resources :stores do
-    resources :coffees, only: [:new]
+    resources :coffees, only: [:new, :index]
     resources :locations, only: [:index, :new]
   end
 
