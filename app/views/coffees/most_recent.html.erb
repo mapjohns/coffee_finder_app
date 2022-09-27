@@ -1,6 +1,2 @@
 <div><h1>Below are the most recently added coffees in order from newest to oldest!<h1></div>
-<ol>
-<% @coffees.each do |coffee| %>
-    <li><%= link_to coffee.drink_name, coffee_path(coffee) %></li>
-<% end %>
-</ol>
+<%= render partial: "coffees/form", locals: {coffees: @coffees} %>

@@ -1,0 +1,5 @@
+<ol>
+<% coffees.each do |coffee| %>
+    <li><%= link_to coffee.drink_name, coffee_path(coffee) %></li>
+<% end %>
+</ol>
