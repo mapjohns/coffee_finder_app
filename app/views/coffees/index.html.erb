@@ -1,5 +1,6 @@
 <div><h1>Below are all the coffees available so far!<h1></div>
 <p>Don't see a specific coffee? Feel free to submit a new one <%= link_to "here", new_coffee_path %></p>
+<%= link_to "Most Recent", "/coffees/most_recent" %> 
 <ol>
 <% @coffees.each do |coffee| %>
     <li><%= link_to coffee.drink_name, coffee_path(coffee) %></li>
