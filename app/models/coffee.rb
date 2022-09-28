@@ -8,6 +8,7 @@ class Coffee < ActiveRecord::Base
     accepts_nested_attributes_for :store
 
     scope :recently_added, -> { order(created_at: :desc) }
+    scope :coffee_highest_rated, -> { joins(:reviews).group(:drink_name).order('avg(rating) desc') }
 
     def store_attributes=(store_attributes)
         check = store_attributes[:name] == ""
