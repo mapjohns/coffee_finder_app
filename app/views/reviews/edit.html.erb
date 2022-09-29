@@ -1,2 +1,4 @@
 <h1>Updating review for <%= @review.coffee.drink_name %></h1>
 <%= render partial: "reviews/form", locals: {model: @review, coffee: @coffee} %>
+<br><br>
+<%= button_to 'Delete', @review, :method => :delete %> 
