@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :coffees, only: [:index, :show]
-    resources :reviews, only: [:index, :show, :edit, :update]
+    resources :reviews, only: [:index, :show, :edit, :update, :destroy]
   end
 
   resources :stores do
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :coffees do
-    resources :reviews, only: [:new]
+    resources :reviews, only: [:new, :show]
   end
   resources :reviews
   resources :locations
