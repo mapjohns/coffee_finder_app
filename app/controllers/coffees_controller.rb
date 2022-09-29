@@ -34,8 +34,7 @@ class CoffeesController < ApplicationController
 
     def create
         @coffee = Coffee.new(coffee_params)
-        if @coffee.valid?
-            @coffee.save
+        if @coffee.save
             redirect_to coffees_path
         else
           render 'new'  
