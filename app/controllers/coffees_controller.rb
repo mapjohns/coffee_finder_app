@@ -29,6 +29,8 @@ class CoffeesController < ApplicationController
             redirect_to stores_path
         else
             @coffee = Coffee.new(store_id: params[:store_id])
+            @store = Store.new()
+            @stores = Store.all
         end
     end
 
