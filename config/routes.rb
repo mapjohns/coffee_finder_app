@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#home'
 
   resources :users do
-    resources :coffees, only: [:index, :show]
-    resources :reviews, only: [:index, :show, :edit, :update, :destroy]
+    resources :reviews, only: [:edit]
   end
 
   resources :stores do
@@ -22,9 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :coffees do
-    resources :reviews, only: [:new, :show]
+    resources :reviews, only: [:new]
   end
+  
   resources :reviews
-  resources :locations
+  resources :locations, only: [:new, :create]
 
 end
