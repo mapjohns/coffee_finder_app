@@ -1,12 +1,13 @@
 <h1><%= @coffee.drink_name %></h1>
 <p><%= @coffee.description %></p>
+<p>Added: <%= time_stamp(@coffee) %></p>
 <h3>Store: <%= link_to @coffee.store.name, store_path(@coffee.store) %></h3>
 <h3>Average Rating: <%= avg_rating %>/5</h3>
 <div>
     <h3>Reviews: </h3>
     <% @coffee.reviews.each do |review| %>
         <p>
-        <%= review.user.first_name %> on <%= review.created_at.strftime("%b %d, %Y %l:%M%p")%>
+        <%= review.user.first_name %> on <%= time_stamp(review) %>
         <%= link_to "Update Review", edit_user_review_path(review.user, review) if review.user == current_user %> <br>
         Rating: <%= review.rating %>/5<br> 
         Review: <%= review.content %>

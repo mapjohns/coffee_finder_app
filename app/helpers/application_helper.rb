@@ -13,4 +13,8 @@ module ApplicationHelper
             link_to "My Profile", user_path(current_user)
         end
     end
+
+    def time_stamp(test1)
+        test1.created_at.strftime("%b %d, %Y")
+    end
 end
