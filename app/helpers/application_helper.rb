@@ -17,4 +17,10 @@ module ApplicationHelper
     def time_stamp(test1)
         test1.created_at.strftime("%b %d, %Y")
     end
+
+    def flash_notice
+        if flash[:notice]
+            flash[:notice]
+        end
+    end
 end
