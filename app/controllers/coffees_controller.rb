@@ -3,7 +3,7 @@ class CoffeesController < ApplicationController
 
     def index
         if params[:store_id]
-            store = Store.find(params[:store_id])
+            store = Store.find_by(id: params[:store_id])
             if store.nil?
                 flash[:notice] = "Store not found."
                 redirect_to stores_path

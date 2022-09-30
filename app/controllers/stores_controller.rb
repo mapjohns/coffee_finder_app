@@ -12,7 +12,7 @@ class StoresController < ApplicationController
     end
 
     def show
-        @store = Store.find(params[:id])
+        @store = Store.find_by(id: params[:id])
         @location = Location.new()
         @locations = Location.all
     end

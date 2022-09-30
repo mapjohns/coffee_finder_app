@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
     
     def index
         if params[:store_id]
-            @store = Store.find(params[:store_id])
+            @store = Store.find_by(id: params[:store_id])
             @locations = @store.locations
             @location = Location.new
         else
@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
     end
 
     def new
-        @store = Store.find(params[:store_id])
+        @store = Store.find_by(id: params[:store_id])
         @location = Location.new
     end
 
