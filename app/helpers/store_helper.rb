@@ -5,6 +5,6 @@ module StoreHelper
     end
 
     def num_coffee
-        Store.find(id: params[:id]).coffees.count
+        Store.find_by(id: params[:id]).coffees.count
     end
 end
