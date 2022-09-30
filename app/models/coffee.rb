@@ -1,6 +1,7 @@
 class Coffee < ActiveRecord::Base
     validates :drink_name, :description, :store_id, presence: true
-    
+    validates :drink_name, uniqueness: { message: "already in use at this store." }, if: :same_drink_store, on: :create
+
     has_many :reviews
     has_many :users, through: :reviews
     belongs_to :store
@@ -16,6 +17,10 @@ class Coffee < ActiveRecord::Base
               store = Store.find_or_create_by(:name => store_attributes[:name])
               self.store = store
         end
+    end
+
+    def same_drink_store
+        Store.find(self.store_id).coffees.find_by(:drink_name => self.drink_name)
     end
     
 end
