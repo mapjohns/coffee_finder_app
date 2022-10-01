@@ -2,11 +2,13 @@
 <p>You have reviewed the following coffees: </p>
 <%= render partial: "coffees/form", locals: {coffees: @user.coffees} %>
 
+<h2>Coffee</h2>
 <table>
-<% Coffee.all.each do |coffee| %>
+<% @coffees.each do |coffee| %>
     <tr>
     <td><%= coffee.drink_name %></td>
     <td><%= button_to 'Delete', coffee, :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_coffee_path(coffee) %>
     </tr>
 <% end %>
-<table
+<table>
