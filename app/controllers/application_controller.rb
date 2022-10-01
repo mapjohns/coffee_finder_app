@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
         user = User.find_by(id: session[:user_id])
         user.nil? ? nil : user
     end
+
+    def is_admin?
+        if current_user.admin == false
+            flash[:notice] = "You must be an admin to do that."
+            redirect_to '/coffees'
+        end
+    end
 end
