@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_30_234442) do
+ActiveRecord::Schema.define(version: 2022_09_30_235829) do
 
   create_table "coffees", force: :cascade do |t|
     t.string "drink_name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_09_30_234442) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "g_id"
+    t.boolean "admin", default: false
   end
 
 end
