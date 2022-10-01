@@ -1,22 +1,3 @@
 <h1>Add Coffee to the Website</h1>
 <p>If you find that a coffee drink is missing, this is the place to add it and share your favorite drink!</p><br>
-<%= form_for @coffee do |f| %>
-
-  <%= render partial: "layouts/errors", locals: {model: @coffee} %>
-
-    <%= f.label :drink_name %>
-    <%= f.text_field :drink_name %><br><br>
-    <%= f.label :description %>
-    <%= f.text_area :description %><br><br>
-
-    <label>Store Name: </label>
-    <%= f.collection_select :store_id, @stores, :id, :name %><br><br>
-    <p><strong>Cannot find the store? You can also add it below: </strong></p>
-    <%= f.fields_for :store, @store do |store_field| %>
-        <%= store_field.label :store_name %>
-        <%= store_field.text_field :name %>
-    <% end %>
-
-    <br><br>
-    <%= f.submit %>
-<% end %>
+<%= render partial: "coffees/update", locals: {coffee: @coffee, :stores => @stores, store: @store} %>
