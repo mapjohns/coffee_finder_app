@@ -1,5 +1,6 @@
 class CoffeesController < ApplicationController
     skip_before_action :logged_in?, only: [:index, :show, :most_recent]
+    before_action :is_admin?, only: [:edit]
 
     def index
         if params[:store_id]
@@ -39,6 +40,8 @@ class CoffeesController < ApplicationController
         if @coffee.save
             redirect_to coffees_path
         else
+            @store = Store.new()
+            @stores = Store.all
           render 'new'  
         end
     end
@@ -49,11 +52,21 @@ class CoffeesController < ApplicationController
     end
 
     def edit
-        
+        @coffee = Coffee.find_by(id: params[:id])
+        @store = Store.new()
+        @stores = Store.all
     end
 
     def update
-
+        @coffee = Coffee.find_by(id: params[:id])
+        @coffee.update(coffee_params)
+        if @coffee.save
+          redirect_to coffee_path(@coffee)
+        else
+          @store = Store.new()
+          @stores = Store.all
+          render 'edit'
+        end
     end
 
     def destroy
