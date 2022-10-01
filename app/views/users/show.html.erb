@@ -1,3 +1,12 @@
 <h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
 <p>You have reviewed the following coffees: </p>
 <%= render partial: "coffees/form", locals: {coffees: @user.coffees} %>
+
+<table>
+<% Coffee.all.each do |coffee| %>
+    <tr>
+    <td><%= coffee.drink_name %></td>
+    <td><%= button_to 'Delete', coffee, :method => :delete %></td>
+    </tr>
+<% end %>
+<table

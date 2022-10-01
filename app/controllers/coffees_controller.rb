@@ -49,11 +49,17 @@ class CoffeesController < ApplicationController
     end
 
     def edit
-
+        
     end
 
     def update
 
+    end
+
+    def destroy
+        @coffee = Coffee.find_by(id: params[:id]).destroy
+        flash[:notice] = "Coffee deleted"
+        redirect_to coffees_path
     end
 
     private
