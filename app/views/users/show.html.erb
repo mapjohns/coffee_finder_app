@@ -23,3 +23,13 @@
     </tr>
 <% end %>
 <table>
+
+<h2>Review</h2>
+<table>
+<% @reviews.each do |review| %>
+    <tr>
+    <td><%= review.content %></td>
+    <td><%= button_to 'Delete', review, :method => :delete %></td>
+    </tr>
+<% end %>
+<table>
