@@ -22,6 +22,13 @@ class StoresController < ApplicationController
     end
 
     def update
+        @store = Store.find_by(id: params[:id])
+        @store.update(store_params)
+        if @store.save
+          redirect_to store_path(@store)
+        else
+          render 'edit'
+        end
     end
 
     def destroy
