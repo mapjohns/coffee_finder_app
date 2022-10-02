@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
         @coffees = Coffee.all
+        @stores = Store.all
     end
 
     def edit
