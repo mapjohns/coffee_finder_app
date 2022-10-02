@@ -12,3 +12,14 @@
     </tr>
 <% end %>
 <table>
+
+<h2>Store</h2>
+<table>
+<% @stores.each do |store| %>
+    <tr>
+    <td><%= store.name %></td>
+    <td><%= button_to 'Delete', store, :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_store_path(store) %>
+    </tr>
+<% end %>
+<table>
