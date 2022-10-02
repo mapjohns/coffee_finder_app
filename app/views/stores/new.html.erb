@@ -1,6 +1,2 @@
 <h1>Add a Store</h1>
-<% form_for @store do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.submit %>
-<% end %>
+<%= render partial: "stores/form", locals: {store: @store} %>
