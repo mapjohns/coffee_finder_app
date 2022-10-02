@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @coffees = Coffee.all
         @stores = Store.all
+        @reviews = Review.all
     end
 
     def edit
