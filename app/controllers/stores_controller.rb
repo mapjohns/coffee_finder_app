@@ -18,11 +18,17 @@ class StoresController < ApplicationController
     end
 
     def edit
+        @store = Store.find_by(id: params[:id])
     end
 
     def update
     end
 
+    def destroy
+        @store = Store.find_by(id: params[:id]).destroy
+        flash[:notice] = "Store deleted"
+        redirect_to stores_path
+    end
     private
 
     def store_params
