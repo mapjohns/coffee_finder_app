@@ -30,9 +30,26 @@ class LocationsController < ApplicationController
     end
 
     def edit
+        @location = Location.find_by(id: params[:id])
+        binding.pry
+        @store = @location.store.id
+
     end
 
     def update
+        @location = Location.find_by(id: params[:id])
+        @location.update(location_params)
+        if @location.save
+            redirect_to coffees_path
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @location = Location.find_by(id: params[:id]).destroy
+        flash[:notice] = "Location deleted"
+        redirect_to coffees_path
     end
 
     private
