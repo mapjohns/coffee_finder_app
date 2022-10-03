@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         @coffees = Coffee.all
         @stores = Store.all
         @reviews = Review.all
+        @locations = Location.all
     end
 
     def edit
