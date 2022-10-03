@@ -1,5 +1,20 @@
-<ol>
-<% coffees.each do |coffee| %>
-    <li><%= link_to coffee.drink_name, coffee_path(coffee) %></li>
-<% end %>
-</ol>
+<%= form_for coffee do |f| %>
+
+    <%= render partial: "layouts/errors", locals: {model: coffee} %>
+  
+      <%= f.label :drink_name %>
+      <%= f.text_field :drink_name %><br><br>
+      <%= f.label :description %>
+      <%= f.text_area :description %><br><br>
+  
+      <label>Store Name: </label>
+      <%= f.collection_select :store_id, stores, :id, :name %><br><br>
+      <p><strong>Cannot find the store? You can also add it below: </strong></p>
+      <%= f.fields_for :store, store do |store_field| %>
+          <%= store_field.label :store_name %>
+          <%= store_field.text_field :name %>
+      <% end %>
+  
+      <br><br>
+      <%= f.submit %>
+  <% end %>

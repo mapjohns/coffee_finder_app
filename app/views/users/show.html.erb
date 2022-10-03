@@ -48,6 +48,6 @@
 
 <% else %>
 <p>You have reviewed the following coffees: </p>
-<%= render partial: "coffees/form", locals: {coffees: @user.coffees} %>
+<%= render partial: "coffees/list", locals: {coffees: @user.coffees} %>
 
 <% end %>
