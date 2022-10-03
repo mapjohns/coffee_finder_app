@@ -1,7 +1,5 @@
 <h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
-<p>You have reviewed the following coffees: </p>
-<%= render partial: "coffees/form", locals: {coffees: @user.coffees} %>
-
+<% if admin %>
 <h2>Coffee</h2>
 <table>
 <% @coffees.each do |coffee| %>
@@ -47,3 +45,9 @@
     </tr>
 <% end %>
 <table>
+
+<% else %>
+<p>You have reviewed the following coffees: </p>
+<%= render partial: "coffees/form", locals: {coffees: @user.coffees} %>
+
+<% end %>
