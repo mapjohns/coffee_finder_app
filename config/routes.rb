@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   end
   
   resources :reviews
-  resources :locations, only: [:new, :create]
+  resources :locations, only: [:new, :create, :destroy, :edit, :update]
 
 end
