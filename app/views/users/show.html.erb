@@ -24,6 +24,20 @@
 <% end %>
 <table>
 
+<h2>Locations</h2>
+<table>
+<% @locations.each do |location| %>
+    <tr>
+    <td><%= location.street %></td>
+    <td><%= location.city %></td>
+    <td><%= location.state %></td>
+    <td><%= location.zip_code %></td>
+    <td><%= button_to 'Delete', location, :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_location_path(location) %>
+    </tr>
+<% end %>
+<table>
+
 <h2>Review</h2>
 <table>
 <% @reviews.each do |review| %>
