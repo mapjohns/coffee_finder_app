@@ -1,5 +1,5 @@
 class CoffeesController < ApplicationController
-    skip_before_action :logged_in?, only: [:index, :show, :most_recent]
+    skip_before_action :logged_in?, only: [:index, :show, :most_recent, :highest_rated]
     before_action :is_admin?, only: [:edit]
 
     def index
