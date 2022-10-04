@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :coffees, only: [:new, :index]
-    resources :locations, only: [:index, :new]
+    resources :locations, only: [:index, :new, :create]
   end
 
   resources :coffees do
@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   end
   
   resources :reviews
-  resources :locations, only: [:new, :create, :destroy, :edit, :update]
+  resources :locations, only: [:destroy, :edit, :update]
 
 end
