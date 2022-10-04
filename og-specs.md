@@ -57,4 +57,4 @@ Confirm:
     - Yes, helpers are utilized in views, such as in the coffee index view (i.e. coffee_index_wording)
 
 - [x] Views use partials if appropriate
-    - Yes, they do use partials, such as in the coffee edit form
+    - Yes, they do use partials, such as in the coffee edit form, which renders the coffees form partial.
