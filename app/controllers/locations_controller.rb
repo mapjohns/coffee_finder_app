@@ -31,7 +31,6 @@ class LocationsController < ApplicationController
 
     def edit
         @location = Location.find_by(id: params[:id])
-        binding.pry
         @store = @location.store.id
 
     end
