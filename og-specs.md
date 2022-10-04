@@ -51,10 +51,10 @@ Confirm:
     -Confirmed to be pretty DRY.
 
 - [x] Limited logic in controllers
-    -Limited logic in controllers.
+    -Limited logic used in controllers.
 
 - [x] Views use helper methods if appropriate
-    - Yes, helpers are utilized in views.
+    - Yes, helpers are utilized in views, such as in the coffee index view (i.e. coffee_index_wording)
 
 - [x] Views use partials if appropriate
-    - Yes, they do.
+    - Yes, they do use partials, such as in the coffee edit form
