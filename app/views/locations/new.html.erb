@@ -1,6 +1,6 @@
 <h1>Adding a location for <%= render_name %></h1>
 
-<%= form_for @location do |f| %>
+<%= form_for([@store, @location]) do |f| %>
   <%= render partial: "layouts/errors", locals: {model: @location} %>
 
     <div id="c_location">
